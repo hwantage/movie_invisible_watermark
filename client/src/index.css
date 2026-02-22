@@ -1,26 +1,25 @@
 @import "tailwindcss";
 
-/* REPLACE THESE -- define your own palette and fonts for each video */
 :root {
-  --color-primary: #000000;
-  --color-secondary: #6B7280;
-  --color-accent: #3B82F6;
+  --color-primary: #0046FF; /* Shinhan Blue */
+  --color-secondary: #002B99; /* Darker Blue */
+  --color-accent: #00D2FF; /* Bright Blue/Cyan */
 
   --color-bg-light: #FFFFFF;
-  --color-bg-dark: #0F172A;
-  --color-bg-muted: #F8FAFC;
+  --color-bg-dark: #F5F7FA;
+  --color-bg-muted: #E8EEF5;
 
-  --color-text-primary: #111827;
-  --color-text-secondary: #6B7280;
-  --color-text-muted: #9CA3AF;
+  --color-text-primary: #1A1A1A;
+  --color-text-secondary: #4A4A4A;
+  --color-text-muted: #8C8C8C;
   --color-text-inverse: #FFFFFF;
 
   --color-success: #10B981;
-  --color-warning: #F59E0B;
+  --color-warning: #FF3B30; /* Red for warning */
   --color-error: #EF4444;
 
-  --font-display: 'Space Grotesk', sans-serif;
-  --font-body: 'DM Sans', sans-serif;
+  --font-display: 'Outfit', sans-serif;
+  --font-body: 'Noto Sans KR', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 }
 
@@ -47,4 +46,39 @@ body {
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: var(--color-bg-light);
+  color: var(--color-text-primary);
+  overflow: hidden; /* Important for videos */
+}
+
+/* Custom grid pattern for tech feel */
+.bg-grid-pattern {
+  background-size: 40px 40px;
+  background-image: linear-gradient(to right, rgba(0, 70, 255, 0.05) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(0, 70, 255, 0.05) 1px, transparent 1px);
+}
+
+/* Watermark pattern animation */
+.watermark-pattern {
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 10px,
+    rgba(255, 59, 48, 0.1) 10px,
+    rgba(255, 59, 48, 0.1) 20px
+  );
+  background-size: 200% 200%;
+}
+
+@keyframes scanline {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+.animate-scanline {
+  animation: scanline 2s linear infinite;
 }
