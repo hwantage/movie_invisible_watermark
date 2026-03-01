@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { sceneTransitions } from '@/lib/video';
 import { Search, Scan } from 'lucide-react';
-import pcScreen from '@assets/s3_1771764494967.png';
+import pcScreen from '@assets/screen_1772352707848.jpeg';
 
 export function Scene3() {
   const [phase, setPhase] = useState(0);

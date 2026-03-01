@@ -11,12 +11,12 @@ import { Scene5 } from './video_scenes/Scene5';
 
 // Define scene durations in milliseconds
 const SCENE_DURATIONS = {
-  intro: 3000,
-  office_scenario: 4000,
-  warning_alert: 3500,
-  scanner_reveal: 5500,
-  protection: 4000,
-  outro_logo: 4500,
+  intro: 4500,
+  office_scenario: 5500,
+  warning_alert: 5000,
+  scanner_reveal: 7000,
+  protection: 5500,
+  outro_logo: 5500,
 };
 
 export default function VideoTemplate() {

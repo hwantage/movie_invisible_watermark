@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { sceneTransitions } from '@/lib/video';
 import somansaLogo from '@assets/logo_somansa_1772350313980.png';
 import characterImg from '@assets/5-2_1772350336689.png';
-import pcScreen from '@assets/s3_1771764494967.png';
+import pcScreen from '@assets/screen_1772352707848.jpeg';
 
 export function Scene1() {
   const [phase, setPhase] = useState(0);

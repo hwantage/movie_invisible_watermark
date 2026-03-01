@@ -103,9 +103,9 @@ export function Scene4() {
 
       {phase >= 3 && (
         <motion.div
-          className="mt-6 text-[8vw] font-black tracking-tight leading-none text-transparent bg-clip-text bg-gradient-to-b from-white to-white/40 opacity-20 absolute inset-x-0 -z-10 -top-20 pointer-events-none select-none"
-          initial={{ scale: 0.8, opacity: 0 }}
-          animate={{ scale: 1, opacity: 0.2 }}
+          className="text-[12vw] font-black tracking-tight leading-none text-transparent bg-clip-text bg-gradient-to-b from-white to-white/40 opacity-20 absolute right-[10%] top-1/2 -translate-y-1/2 pointer-events-none select-none z-10"
+          initial={{ x: 50, opacity: 0 }}
+          animate={{ x: 0, opacity: 0.2 }}
           transition={{ duration: 1.5, ease: "easeOut" }}
         >
           보호
