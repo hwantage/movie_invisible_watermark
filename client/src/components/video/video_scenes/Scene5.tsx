@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { sceneTransitions } from '@/lib/video';
-import shinhanLogo from '@assets/s4_1771764494967.jpg';
+import somansaLogo from '@assets/logo_somansa_1772350313980.png';
 
 export function Scene5() {
   const [phase, setPhase] = useState(0);
@@ -34,9 +34,9 @@ export function Scene5() {
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
       >
         <img 
-          src={shinhanLogo} 
-          alt="Shinhan Bank Logo" 
-          className="h-[8vw] w-auto object-contain mix-blend-multiply" 
+          src={somansaLogo} 
+          alt="Somansa Logo" 
+          className="h-[10vw] w-auto object-contain" 
         />
         
         {phase >= 1 && (
@@ -46,10 +46,10 @@ export function Scene5() {
             animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
             transition={{ duration: 0.8 }}
           >
-            <p className="text-[#0046FF] font-display font-medium tracking-[0.2em] text-[1vw] mb-[1vw]">
+            <p className="text-[#0046FF] font-display font-medium tracking-[0.2em] text-[1.2vw] mb-[1vw]">
               INVISIBLE WATERMARK SECURITY
             </p>
-            <h3 className="text-[2vw] font-body font-bold text-gray-800">
+            <h3 className="text-[2.5vw] font-body font-bold text-gray-800">
               안전한 보안의 기준, 소만사
             </h3>
           </motion.div>

@@ -32,9 +32,31 @@ export function Scene4() {
         }}
       />
 
+      {/* Typography */}
+      <div className="absolute top-[10%] inset-x-0 text-center z-30">
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5 }}
+        >
+          <span className="inline-block px-4 py-1 rounded-full bg-white/20 text-[#00D2FF] font-mono font-bold text-sm tracking-widest mb-4 backdrop-blur-sm border border-white/10">
+            SECURITY ACTIVE
+          </span>
+        </motion.div>
+        
+        <motion.h2 
+          className="text-[4.5vw] font-display font-black text-white px-[5vw]"
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.8, type: "spring" }}
+        >
+          기업내 핵심 기밀 자료를 안전하게
+        </motion.h2>
+      </div>
+
       {/* Character Center */}
       <motion.div
-        className="relative z-20"
+        className="relative z-20 mt-[15vh]"
         initial={{ scale: 0.5, opacity: 0, y: 50 }}
         animate={{ scale: 1, opacity: 1, y: 0 }}
         transition={{ type: "spring", stiffness: 200, damping: 20 }}
@@ -78,27 +100,6 @@ export function Scene4() {
           )}
         </div>
       </motion.div>
-
-      {/* Typography */}
-      <div className="absolute top-[15%] inset-x-0 text-center z-30">
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5 }}
-        >
-          <span className="inline-block px-4 py-1 rounded-full bg-white/20 text-[#00D2FF] font-mono font-bold text-sm tracking-widest mb-4 backdrop-blur-sm border border-white/10">
-            SECURITY ACTIVE
-          </span>
-        </motion.div>
-        
-        <motion.h2 
-          className="text-[5vw] font-display font-black text-white"
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.8, type: "spring" }}
-        >
-          직원과 자산을 안전하게
-        </motion.h2>
         
         {phase >= 3 && (
           <motion.div
