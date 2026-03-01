@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { sceneTransitions } from '@/lib/video';
-import shinhanChar from '@assets/s2_1771764494965.jpg';
+import somansaLogo from '@assets/logo_somansa_1772350313980.png';
+import characterImg from '@assets/5-2_1772350336689.png';
 import pcScreen from '@assets/s3_1771764494967.png';
 
 export function Scene1() {
@@ -24,6 +25,16 @@ export function Scene1() {
       {/* Background grid */}
       <div className="absolute inset-0 bg-grid-pattern opacity-30" />
 
+      {/* Somansa Logo Intro */}
+      <motion.div 
+        className="absolute top-[5%] right-[5%] z-50"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+      >
+        <img src={somansaLogo} alt="Somansa Logo" className="w-[12vw] h-auto object-contain" />
+      </motion.div>
+
       {/* PC Screen representation */}
       <motion.div 
         className="absolute z-10 rounded-[1vw] overflow-hidden shadow-2xl border-[0.2vw] border-gray-100"
@@ -41,13 +52,13 @@ export function Scene1() {
       {/* Character with smartphone (representing someone taking a photo) */}
       {phase >= 2 && (
         <motion.div 
-          className="absolute z-20 bottom-[-10%] right-[10%]"
+          className="absolute z-20 bottom-[-5%] right-[5%]"
           initial={{ y: 200, opacity: 0, rotate: 10 }}
           animate={{ y: 0, opacity: 1, rotate: -5 }}
           transition={{ type: 'spring', stiffness: 200, damping: 20 }}
         >
           <div className="relative">
-            <img src={shinhanChar} alt="Shinhan Character" className="w-[20vw] h-auto object-contain mix-blend-multiply" />
+            <img src={characterImg} alt="Character" className="w-[25vw] h-auto object-contain" />
             
             {/* Camera flash effect */}
             {phase >= 3 && (
@@ -64,18 +75,21 @@ export function Scene1() {
 
       {/* Overlay Text */}
       <motion.div 
-        className="absolute top-[10%] left-[10%] z-30 w-[40vw]"
+        className="absolute top-[12%] left-[8%] z-30 w-[45vw]"
         initial={{ opacity: 0, x: -30 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 1, duration: 0.8 }}
       >
-        <div className="bg-white/90 backdrop-blur-md p-[2vw] rounded-[1.5vw] border border-gray-100 shadow-xl">
-          <h2 className="text-[2.5vw] leading-tight font-display font-bold text-[#1A1A1A] mb-[1vw]">
+        <div className="bg-white/95 backdrop-blur-md p-[2.5vw] rounded-[2vw] border border-blue-100 shadow-2xl">
+          <h1 className="text-[3.2vw] leading-tight font-display font-black text-[#0046FF] mb-[1vw]">
+            소만사 비가시성 워터마크
+          </h1>
+          <h2 className="text-[2.2vw] leading-tight font-display font-bold text-[#1A1A1A] mb-[1vw]">
             사무실에서 누군가가<br />
             PC 화면을 촬영한다면?
           </h2>
-          <p className="text-[#8C8C8C] font-body text-[1.5vw]">
-            정보 유출의 위험이 발생합니다.
+          <p className="text-[#4A4A4A] font-body font-medium text-[1.6vw]">
+            무단 촬영을 통한 개인정보 유출 방지
           </p>
         </div>
       </motion.div>

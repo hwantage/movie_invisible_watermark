@@ -58,7 +58,7 @@ export function Scene3() {
             {/* The revealed code inside the lens */}
             <div className="absolute inset-[1vw] rounded-full overflow-hidden flex items-center justify-center bg-black/40">
               <span className="font-mono text-[#00D2FF] text-[1.5vw] leading-tight font-bold tracking-[0.2em] text-center">
-                SHINHAN<br/>SECURE<br/>#892A4B
+                SOMANSA<br/>SECURE<br/>#892A4B
               </span>
             </div>
           </div>

@@ -50,7 +50,7 @@ export function Scene5() {
               INVISIBLE WATERMARK SECURITY
             </p>
             <h3 className="text-[2vw] font-body font-bold text-gray-800">
-              안전한 금융의 기준, 신한은행
+              안전한 보안의 기준, 소만사
             </h3>
           </motion.div>
         )}

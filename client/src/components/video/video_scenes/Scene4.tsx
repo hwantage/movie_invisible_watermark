@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { sceneTransitions } from '@/lib/video';
 import { ShieldCheck } from 'lucide-react';
-import shinhanChar from '@assets/s2_1771764494965.jpg';
+import characterImg from '@assets/5-2_1772350336689.png';
 
 export function Scene4() {
   const [phase, setPhase] = useState(0);
@@ -62,8 +62,8 @@ export function Scene4() {
           </>
         )}
 
-        <div className="relative w-[25vw] h-[25vw] bg-white rounded-full flex items-center justify-center shadow-2xl p-[2vw]">
-          <img src={shinhanChar} alt="Shinhan Employee" className="w-full h-full object-contain mix-blend-multiply" />
+        <div className="relative w-[28vw] h-[28vw] bg-white rounded-full flex items-center justify-center shadow-2xl p-[1vw]">
+          <img src={characterImg} alt="Character" className="w-[85%] h-auto object-contain" />
           
           {/* Shield Overlay */}
           {phase >= 1 && (
