@@ -100,18 +100,17 @@ export function Scene4() {
           )}
         </div>
       </motion.div>
-        
-        {phase >= 3 && (
-          <motion.div
-            className="mt-6 text-[8vw] font-black tracking-tight leading-none text-transparent bg-clip-text bg-gradient-to-b from-white to-white/40 opacity-20 absolute inset-x-0 -z-10 -top-20 pointer-events-none select-none"
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: 1, opacity: 0.2 }}
-            transition={{ duration: 1.5, ease: "easeOut" }}
-          >
-            보호
-          </motion.div>
-        )}
-      </div>
+
+      {phase >= 3 && (
+        <motion.div
+          className="mt-6 text-[8vw] font-black tracking-tight leading-none text-transparent bg-clip-text bg-gradient-to-b from-white to-white/40 opacity-20 absolute inset-x-0 -z-10 -top-20 pointer-events-none select-none"
+          initial={{ scale: 0.8, opacity: 0 }}
+          animate={{ scale: 1, opacity: 0.2 }}
+          transition={{ duration: 1.5, ease: "easeOut" }}
+        >
+          보호
+        </motion.div>
+      )}
     </motion.div>
   );
 }
