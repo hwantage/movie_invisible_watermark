@@ -23,16 +23,16 @@ export function Scene0() {
       
       <motion.div
         className="relative z-10 flex flex-col items-center text-center px-[5vw]"
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 0 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
         <motion.img 
           src={somansaLogo} 
           alt="Somansa Logo" 
-          className="w-[25vw] h-auto mb-[4vw]"
+          className="w-[50vw] h-auto mb-[4vw]"
           initial={{ scale: 0.8, opacity: 0 }}
-          animate={{ scale: phase >= 1 ? 1 : 0.8, opacity: phase >= 1 ? 1 : 0 }}
+          animate={{ scale: 1, opacity: 1 }}
           transition={{ type: "spring", stiffness: 100 }}
         />
         
