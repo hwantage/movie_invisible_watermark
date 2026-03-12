@@ -22,25 +22,26 @@ export function Scene0() {
       <div className="absolute inset-0 bg-grid-pattern opacity-10" />
       
       <motion.div
-        className="relative z-10 flex flex-col items-center text-center px-[5vw]"
+        className="relative z-10 flex items-center justify-center w-full h-full px-[5vw]"
         initial={{ opacity: 0, y: 0 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
-        <motion.img 
-          src={somansaLogo} 
-          alt="Somansa Logo" 
-          className="w-[50vw] h-auto mb-[4vw]"
-          initial={{ scale: 0.8, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ type: "spring", stiffness: 100 }}
-        />
-        
-        {phase >= 2 && (
+        <div className="relative flex flex-col items-center text-center -translate-y-[100px]">
+          <motion.img 
+            src={somansaLogo} 
+            alt="Somansa Logo" 
+            className="w-[50vw] h-auto"
+            initial={{ scale: 0.95, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
+          />
+          
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            className="absolute left-1/2 top-[calc(100%+2vw)] w-[70vw] -translate-x-1/2"
+            initial={{ opacity: 0, y: 15 }}
+            animate={phase >= 2 ? { opacity: 1, y: 0 } : { opacity: 0, y: 15 }}
+            transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
           >
             <h1 className="text-[4vw] font-display font-black text-[#0046FF] mb-[1.5vw] tracking-tight">
               비가시성 워터마크 기능 소개
@@ -49,7 +50,7 @@ export function Scene0() {
               화면 촬영을 통한 기업 민감 정보 유출을 방지합니다.
             </p>
           </motion.div>
-        )}
+        </div>
       </motion.div>
 
       {/* Decorative elements */}

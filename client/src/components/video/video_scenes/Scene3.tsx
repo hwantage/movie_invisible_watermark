@@ -41,12 +41,12 @@ export function Scene3() {
       {phase >= 1 && phase < 3 && (
         <motion.div
           className="absolute z-30 pointer-events-none"
-          initial={{ x: '-50vw', y: '-20vh', opacity: 0, scale: 0.5 }}
-          animate={{ 
-            x: ['-50vw', '10vw', '40vw'], 
-            y: ['-20vh', '10vh', '-10vh'],
+          initial={{ x: '-60vw', y: '-20vh', opacity: 0, scale: 0.5 }}
+          animate={{
+            x: ['-60vw', '5vw', '33vw'],
+            y: ['-50vh', '5vh', '-10vh'],
             opacity: [0, 1, 1],
-            scale: [0.5, 1.5, 1.5]
+            scale: [0.5, 1.5, 1]
           }}
           transition={{ duration: 2.5, ease: "easeInOut" }}
         >

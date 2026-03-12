@@ -38,9 +38,9 @@ export function Scene1() {
       {/* PC Screen representation */}
       <motion.div 
         className="absolute z-10 rounded-[1vw] overflow-hidden shadow-2xl border-[0.2vw] border-gray-100"
-        initial={{ scale: 1.5, opacity: 0 }}
+        initial={{ scale: 2, opacity: 0 }}
         animate={{ 
-          scale: phase >= 1 ? 0.8 : 1.5,
+          scale: phase >= 1 ? 1.2 : 2,
           opacity: 1,
           y: phase >= 2 ? '-5%' : 0
         }}
@@ -57,16 +57,16 @@ export function Scene1() {
           animate={{ y: 0, opacity: 1, rotate: -5 }}
           transition={{ type: 'spring', stiffness: 200, damping: 20 }}
         >
-          <div className="relative">
-            <img src={characterImg} alt="Character" className="w-[25vw] h-auto object-contain" />
+          <div className="relative isolate">
+            <img src={characterImg} alt="Character" className="relative z-20 w-[25vw] h-auto object-contain" />
             
             {/* Camera flash effect */}
             {phase >= 3 && (
               <motion.div 
-                className="absolute inset-0 bg-white z-30 rounded-full"
+                className="absolute inset-0 bg-white z-10 rounded-full"
                 initial={{ opacity: 0, scale: 0 }}
                 animate={{ opacity: [0, 1, 0], scale: [0, 2, 3] }}
-                transition={{ duration: 0.5, times: [0, 0.1, 1] }}
+                transition={{ duration: 0.5, times: [0, 0.1, 1], repeat: 1, repeatDelay: 1 }}
               />
             )}
           </div>

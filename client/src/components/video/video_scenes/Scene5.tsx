@@ -1,85 +1,116 @@
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { sceneTransitions } from '@/lib/video';
-import somansaLogo from '@assets/logo_somansa_1772350313980.png';
+import { ShieldCheck } from 'lucide-react';
+import characterImg from '@assets/5-2_1772350336689.png';
 
 export function Scene5() {
   const [phase, setPhase] = useState(0);
 
   useEffect(() => {
     const timers = [
-      setTimeout(() => setPhase(1), 800),  // Subtext reveals
-      setTimeout(() => setPhase(2), 2500), // Exit transition starts
+      setTimeout(() => setPhase(1), 500),  // Shield appears
+      setTimeout(() => setPhase(2), 1200), // Protection rings expand
+      setTimeout(() => setPhase(3), 2000), // Keyword emphasizes
     ];
     return () => timers.forEach(t => clearTimeout(t));
   }, []);
 
   return (
     <motion.div 
-      className="absolute inset-0 bg-white flex flex-col items-center justify-center overflow-hidden"
-      {...sceneTransitions.fadeBlur}
+      className="absolute inset-0 bg-[#0046FF] flex items-center justify-center overflow-hidden"
+      {...sceneTransitions.splitHorizontal}
     >
-      {/* Minimal clean background for logo */}
+      {/* Dynamic Background Pattern */}
       <motion.div 
-        className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-transparent via-[#0046FF] to-transparent"
-        initial={{ scaleX: 0, opacity: 0 }}
-        animate={{ scaleX: 1, opacity: 1 }}
-        transition={{ duration: 1.5, delay: 0.2 }}
+        className="absolute inset-0 opacity-10"
+        animate={{ backgroundPosition: ['0px 0px', '100px 100px'] }}
+        transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
+        style={{
+          backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)',
+          backgroundSize: '40px 40px'
+        }}
       />
 
-      <motion.div
-        className="relative z-10 flex flex-col items-center"
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-      >
-        <img 
-          src={somansaLogo} 
-          alt="Somansa Logo" 
-          className="h-[10vw] w-auto object-contain" 
-        />
+      {/* Typography */}
+      <div className="absolute top-[10%] inset-x-0 text-center z-30">
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5 }}
+        >
+          <span className="inline-block px-4 py-1 rounded-full bg-white/20 text-[#00D2FF] font-mono font-bold text-sm tracking-widest mb-4 backdrop-blur-sm border border-white/10">
+            SECURITY ACTIVE
+          </span>
+        </motion.div>
         
-        {phase >= 1 && (
-          <motion.div
-            className="mt-[3vw] text-center"
-            initial={{ opacity: 0, y: 10, filter: 'blur(10px)' }}
-            animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-            transition={{ duration: 0.8 }}
-          >
-            <p className="text-[#0046FF] font-display font-medium tracking-[0.2em] text-[1.2vw] mb-[1vw]">
-              INVISIBLE WATERMARK SECURITY
-            </p>
-            <h3 className="text-[2.5vw] font-body font-bold text-gray-800">
-              안전한 보안의 기준, 소만사
-            </h3>
-          </motion.div>
+        <motion.h2 
+          className="text-[4.5vw] font-display font-black text-white px-[5vw]"
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.8, type: "spring" }}
+        >
+          기업내 핵심 기밀 자료를 안전하게
+        </motion.h2>
+      </div>
+
+      {/* Character Center */}
+      <motion.div
+        className="relative z-20 mt-[15vh]"
+        initial={{ scale: 0.5, opacity: 0, y: 50 }}
+        animate={{ scale: 1, opacity: 1, y: 0 }}
+        transition={{ type: "spring", stiffness: 200, damping: 20 }}
+      >
+        {/* Protection Rings */}
+        {phase >= 2 && (
+          <>
+            {[1, 2, 3].map((ring) => (
+              <motion.div
+                key={ring}
+                className="absolute inset-[-100px] rounded-full border-2 border-[#00D2FF]/40"
+                initial={{ scale: 0.5, opacity: 0 }}
+                animate={{
+                  scale: 2.5,
+                  opacity: [0, 0.6, 0]
+                }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  delay: ring * 0.6,
+                  ease: "linear"
+                }}
+              />
+            ))}
+          </>
         )}
+
+        <div className="relative w-[28vw] h-[28vw] bg-white rounded-full flex items-center justify-center shadow-2xl p-[1vw]">
+          <img src={characterImg} alt="Character" className="w-[85%] h-auto object-contain" />
+          
+          {/* Shield Overlay */}
+          {phase >= 1 && (
+            <motion.div
+              className="absolute -right-[2vw] -bottom-[2vw] bg-[#00D2FF] text-white p-[1.5vw] rounded-full shadow-lg border-[0.3vw] border-white"
+              initial={{ scale: 0, rotate: -45 }}
+              animate={{ scale: 1, rotate: 0 }}
+              transition={{ type: "spring", bounce: 0.6, delay: 0.2 }}
+            >
+              <ShieldCheck className="w-[5vw] h-[5vw]" />
+            </motion.div>
+          )}
+        </div>
       </motion.div>
 
-      {/* Subtle particle effects */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-30">
-        {Array.from({ length: 20 }).map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-1 h-1 bg-[#0046FF] rounded-full"
-            initial={{ 
-              x: `${Math.random() * 100}vw`, 
-              y: `${100 + Math.random() * 20}vh`,
-              opacity: Math.random() * 0.5 + 0.2
-            }}
-            animate={{ 
-              y: `-20vh`,
-              x: `+=${(Math.random() - 0.5) * 100}px`
-            }}
-            transition={{ 
-              duration: 5 + Math.random() * 5, 
-              repeat: Infinity,
-              delay: Math.random() * 5,
-              ease: "linear"
-            }}
-          />
-        ))}
-      </div>
+      {phase >= 3 && (
+        <motion.div
+          className="text-[12vw] font-black tracking-tight leading-none text-transparent bg-clip-text bg-gradient-to-b from-white to-white/40 opacity-20 absolute right-[10%] top-1/2 -translate-y-1/2 pointer-events-none select-none z-10"
+          initial={{ x: 50, opacity: 0 }}
+          animate={{ x: 0, opacity: 0.2 }}
+          transition={{ duration: 1.5, ease: "easeOut" }}
+        >
+          보호
+        </motion.div>
+      )}
     </motion.div>
   );
 }

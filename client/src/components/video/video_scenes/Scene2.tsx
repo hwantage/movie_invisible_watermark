@@ -10,7 +10,7 @@ export function Scene2() {
     const timers = [
       setTimeout(() => setPhase(1), 300),  // Warning overlay appears
       setTimeout(() => setPhase(2), 1200), // Screen zooms in
-      setTimeout(() => setPhase(3), 2000), // Invisible code starts revealing
+      setTimeout(() => setPhase(3), 3000), // Invisible code starts revealing
     ];
     return () => timers.forEach(t => clearTimeout(t));
   }, []);
@@ -83,16 +83,16 @@ export function Scene2() {
           animate={{ opacity: 0.4 }}
           transition={{ duration: 1 }}
         >
-          {Array.from({ length: 150 }).map((_, i) => (
+          {Array.from({ length: 250 }).map((_, i) => (
             <motion.div
               key={i}
-              className="text-xs font-mono text-cyan-400 opacity-0 mr-4 mb-4"
-              animate={{ opacity: [0, Math.random() * 0.8 + 0.2, 0] }}
-              transition={{ 
-                duration: 2, 
-                repeat: Infinity, 
-                delay: Math.random() * 2,
-                repeatDelay: Math.random() * 1
+              className="text-xs font-mono text-cyan-400 mr-4 mb-4"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: Math.random() * 0.6 + 0.2 }}
+              transition={{
+                duration: 0.8,
+                delay: Math.random() * 2.5,
+                ease: 'easeOut'
               }}
             >
               {Math.random().toString(36).substring(2, 10).toUpperCase()}

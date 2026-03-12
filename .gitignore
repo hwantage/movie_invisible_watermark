@@ -3,3 +3,5 @@ dist
 .DS_Store
 vite.config.ts.*
 *.tar.gz
+*.mp4
+*.webm
